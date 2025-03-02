@@ -1,4 +1,4 @@
-import buildDiff from './parses/ast.js';
+import buildDiff from './ast.js';
 import parse from './parses/index.js';
 import { getData, getExt } from './utils.js';
 
