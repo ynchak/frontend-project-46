@@ -9,7 +9,8 @@ const buildDiff = (obj1, obj2) => {
 
     if (!hasKey1) return { status: 'added', [key]: obj2[key] };
     if (!hasKey2) return { status: 'removed', [key]: obj1[key] };
-    if (obj1[key] === obj2[key]) return { status: 'same', [key]: obj1[key] };
+    if (obj1[key] === obj2[key])
+      return { status: 'unchanged', [key]: obj1[key] };
 
     return [
       { status: 'removed', [key]: obj1[key] },
