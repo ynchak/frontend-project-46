@@ -1,4 +1,5 @@
 import buildDiff from './ast.js';
+import format from './formaters/index.js';
 import parse from './parses/index.js';
 import { getData, getExt } from './utils.js';
 
@@ -12,7 +13,7 @@ const gendiff = (filepath1, filepath2) => {
   const obj1 = loadfile(filepath1);
   const obj2 = loadfile(filepath2);
   const diff = buildDiff(obj1, obj2);
-  return diff;
+  return format(diff);
 };
 
 export default gendiff;
