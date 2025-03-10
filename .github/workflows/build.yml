@@ -16,8 +16,10 @@ jobs:
       - name: CI
         run: make install
 
-      - name: lint
+      - name: Lint
         run: make lint
 
-      - name: tests
+      - name: Tests
         run: make test
+      - name: Test coverage
+        run: make test-coverage
