@@ -14,8 +14,8 @@ const getFixturePath = (filename) =>
 
 const table = ['json', 'yml'];
 test.each(table)('flatten files', (ext) => {
-  const before = getFixturePath(`file1.flat.${ext}`);
-  const after = getFixturePath(`file2.flat.${ext}`);
-  const result = fs.readFileSync(getFixturePath('result.flat.txt'), 'utf8');
+  const before = getFixturePath(`file1.${ext}`);
+  const after = getFixturePath(`file2.${ext}`);
+  const result = fs.readFileSync(getFixturePath('result.txt'), 'utf8');
   expect(gendiff(before, after)).toBe(result);
 });
