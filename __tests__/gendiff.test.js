@@ -12,9 +12,10 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) =>
   path.join(__dirname, '..', '__fixtures__', filename);
 
-test('flatten files', () => {
-  const before = getFixturePath('file1.flat.json');
-  const after = getFixturePath('file2.flat.json');
+const table = ['json', 'yml'];
+test.each(table)('flatten files', (ext) => {
+  const before = getFixturePath(`file1.flat.${ext}`);
+  const after = getFixturePath(`file2.flat.${ext}`);
   const result = fs.readFileSync(getFixturePath('result.flat.txt'), 'utf8');
   expect(gendiff(before, after)).toBe(result);
 });
