@@ -9,7 +9,7 @@ const parsers = {
 
 export default (data, type) => {
   if (!Object.hasOwn(parsers, type)) {
-    return new Error(`unknow format type: ${type}`);
+    throw new Error(`unknow format type: ${type}`);
   }
   return parsers[type](data);
 };
