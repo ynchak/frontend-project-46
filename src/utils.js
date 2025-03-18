@@ -8,5 +8,7 @@ export const getData = (filepath) => {
   const data = fs.readFileSync(fullPath, 'utf8');
   return data;
 };
+export const isObject = (value) =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
 
 export const getExt = (filepath) => path.extname(filepath);
