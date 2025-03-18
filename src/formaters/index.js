@@ -1,17 +1,16 @@
-const statuses = {
-  added: '  +',
-  unchanged: '   ',
-  deleted: '  -',
+import stylish from './stylish.js';
+
+const output = {
+  stylish,
+  // plain,
+  // json,
 };
-const format = (diff) => {
-  const result = diff.map((line) => {
-    const { status, key, value } = line;
-    if (!Object.hasOwn(statuses, status)) {
-      return new Error(`unknown status: ${status}`);
-    }
-    return `${statuses[status]} ${key}: ${value}`;
-  });
-  return `{\n${result.join('\n')}\n}`;
+
+const format = (diff, formatType) => {
+  if (!Object.hasOwn(output, formatType)) {
+    throw new Error(`Unknown output format: ${formatType}`);
+  }
+  return output[formatType](diff);
 };
 
 export default format;

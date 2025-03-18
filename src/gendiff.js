@@ -9,11 +9,11 @@ const loadfile = (filepath) => {
   return parse(data, ext);
 };
 
-const gendiff = (filepath1, filepath2) => {
+const gendiff = (filepath1, filepath2, formatType = 'stylish') => {
   const obj1 = loadfile(filepath1);
   const obj2 = loadfile(filepath2);
   const diff = buildDiff(obj1, obj2);
-  return format(diff);
+  return format(diff, formatType);
 };
 
 export default gendiff;
