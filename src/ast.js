@@ -12,7 +12,7 @@ const buildDiff = (obj1, obj2) => {
     const value2 = obj2[key];
 
     if (!hasKey1) return [{ status: 'added', key, value: value2 }];
-    if (!hasKey2) return [{ status: 'deleted', key, value: value1 }];
+    if (!hasKey2) return [{ status: 'removed', key, value: value1 }];
 
     if (isObject(value1) && isObject(value2)) {
       return [{ status: 'nested', key, children: buildDiff(value1, value2) }];

@@ -33,7 +33,7 @@ export default (diff) => {
       switch (status) {
         case 'added':
           return `${currentIndent}+ ${key}: ${stringify(value, newDepth)}`;
-        case 'deleted':
+        case 'removed':
           return `${currentIndent}- ${key}: ${stringify(value, newDepth)}`;
         case 'updated':
           return [
